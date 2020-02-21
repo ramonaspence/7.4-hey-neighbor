@@ -1,10 +1,10 @@
 <nav class="row no-gutters">
   <div class="header col-8">
     <ul>
-      <li><a href="{% url 'tools:base.html' %}">Home</a></li>
+      <li><a href="{% url 'tools:home' %}">Home</a></li>
       <li><a href="">My Tools</a></li>
       <li><a href="">User List</a></li>
-      <li><a href="">Tool List</a></li>
+      <li><a href="{% url 'tools:list' %}">Tool List</a></li>
     </ul>
   </div>
   <div class="signin col-3">
