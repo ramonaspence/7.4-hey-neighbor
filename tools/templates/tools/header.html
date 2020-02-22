@@ -3,18 +3,19 @@
     <ul>
       <li><a href="{% url 'tools:home' %}">Home</a></li>
       <li><a href="">My Tools</a></li>
-      <li><a href="">User List</a></li>
+      <li><a href="{% url 'tools:users'%}">User List</a></li>
       <li><a href="{% url 'tools:list' %}">Tool List</a></li>
     </ul>
   </div>
   <div class="signin col-3">
     <ul>
-      {% if request.user.is_authenticated %}
-      <li><a href="{% url 'logout' %}">Log Out</a></li>
-      {% else %}
 
-      <li><a href="{% url 'accounts:login' %}">Log In</a></li>
+      {% if request.user.is_authenticated %}
+        <li><a href="{% url 'logout' %}">Log Out</a></li>
+      {% else %}
+        <li><a href="{% url 'login' %}">Log In</a></li>
       {% endif %}
+
       <li><a href="{% url 'accounts:signup' %}">Sign Up</a></li>
     </ul>
   </div>

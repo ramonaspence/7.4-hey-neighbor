@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.views import generic
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 from .models import Tool
 class IndexView(generic.TemplateView):
@@ -9,8 +12,9 @@ class MyToolView(generic.ListView):
     template_name = 'tools/mytools.html'
     model = Tool
 
-class UserView(generic.TemplateView):
+class UserView(generic.ListView):
     template_name = "tools/users.html"
+    model = User
 
 class ToolListView(generic.ListView):
     template_name = 'tools/tools.html'
