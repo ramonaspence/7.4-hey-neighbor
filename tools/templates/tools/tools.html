@@ -10,6 +10,7 @@
       <p>{{ tool.type }}</p>
     </div>
     <div class="modal-body">
+      <h6>Owned by {{ tool.owner }}</h6>
       <p>{{ tool.description }}</p>
        {% if tool.borrowed is False %}
       <p>Available to Borrow</p>

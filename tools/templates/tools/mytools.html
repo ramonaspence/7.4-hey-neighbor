@@ -3,7 +3,14 @@
 {% block content %}
 <div class="row no-gutters">
   <div class="col-8 offset-2">
-    {%%}
-
+    <div class="modal-header">
+      <h2>Hello World</h2>
+    </div>
+    <div class="modal-body">
+      <h4>{{ tools.owner }}</h4>
+      <p>{{ mytools.type }}</p>
+      <p>{{ mytools.description }}</p>
+    </div>
   </div>
 </div>
+{% endblock content %}
