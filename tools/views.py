@@ -14,16 +14,14 @@ class MyToolView(generic.ListView):
     template_name = 'tools/mytools.html'
     model = Tool
 
-    def __str__(self):
-        return self.owner
-
     def get_queryset(self):
-        if 'selection' in self.kwargs:
-            filter = self.kwargs['selection']
-            if filter == Tool.owner:
-                return Tool.objects.filter(owner = Tool.owner)
-        else:
-            return Tool.objects.filter()
+        queryset = Tool.objects.all()
+
+        username = self.request.user.id
+        if username is not None:
+            queryset = queryset.filter(owner = username)
+        return queryset
+
 
 class UserView(generic.ListView):
     template_name = "tools/users.html"

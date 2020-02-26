@@ -3,9 +3,7 @@
     <ul>
       <li><a href="{% url 'tools:home' %}">Home</a></li>
         {% if request.user.is_authenticated %}
-      <li><a href="{% url 'tools:mytools' user.username %}">My Tools</a></li>
-        {% else %}
-      <li><a href="{% url 'tools:home' %}">My Tools</a></li>
+      <li><a href="{% url 'tools:mytools' user.id %}">My Tools</a></li>
         {% endif %}
       <li><a href="{% url 'tools:users'%}">User List</a></li>
       <li><a href="{% url 'tools:list' %}">Tool List</a></li>
