@@ -3,6 +3,8 @@ from django.views import generic
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect
+
 from .models import Tool
 
 User = get_user_model()
@@ -35,8 +37,14 @@ class ToolListView(generic.ListView):
 class CreateToolView(generic.CreateView):
     template_name = 'tools/add.html'
     model = Tool
-    fields = '__all__'
+    fields = ['name', 'type', 'description']
     success_url = reverse_lazy('tools:list')
+
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        form.instance.borrowed = False
+        form.instance.save()
+        return HttpResponseRedirect(reverse_lazy('tools:list'))
 
 
 
