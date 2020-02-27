@@ -19,7 +19,7 @@ class Tool(models.Model):
     description = models.TextField(max_length = 255)
     borrowed = models.BooleanField()
     owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    
+    borrowing = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name="temp")
 
     def __str__(self):
         return self.name

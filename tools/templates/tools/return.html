@@ -1,0 +1,6 @@
+{% extends 'tools/base.html' %}
+{% block content %}
+<form method='post'>{% csrf_token %}
+  <input type='submit' value='return'>
+</form>
+{% endblock content %}

@@ -14,8 +14,10 @@
       <p>{{ tool.description }}</p>
        {% if tool.borrowed is False %}
       <a href="{% url 'tools:checkout' tool.id %}">Checkout this Tool</a>
+      {% elif tool.borrowing == request.user %}
+      <a href="{% url 'tools:return' tool.id %}">Return this Tool</a>
       {% else %}
-      <p>This tool is unavailable</p>
+      <p>Tool is checked out by {{tool.borrowing}}</p>
       {% endif %}
     </div>
   </div>

@@ -53,6 +53,18 @@ class CheckoutToolView(generic.UpdateView):
 
     def form_valid(self, form):
         form.instance.borrowed = True
+        form.instance.borrowing = self.request.user
+        self.object = form.save()
+        form.instance.save()
+        return HttpResponseRedirect(reverse_lazy('tools:list'))
+
+class ReturnToolView(generic.UpdateView):
+    model = Tool
+    template_name = 'tools/return.html'
+    fields = ['borrowed']
+
+    def form_valid(self, form):
+        form.instance.borrowed = False
         self.object = form.save()
         form.instance.save()
         return HttpResponseRedirect(reverse_lazy('tools:list'))
