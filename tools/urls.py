@@ -4,6 +4,7 @@ from . import views
 app_name = 'tools'
 
 urlpatterns = [
+    path('<int:pk>/checkout/', views.CheckoutToolView.as_view(), name = 'checkout'),
     path('newtool/', views.CreateToolView.as_view(), name = 'new'),
     path('users/', views.UserView.as_view(), name = "users"),
     path('mytools/<str:selection>/', views.MyToolView.as_view(), name = "mytools"),
