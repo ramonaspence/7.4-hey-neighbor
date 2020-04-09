@@ -7,11 +7,13 @@ class Tool(models.Model):
     powertool = 'powertool'
     lawntool = 'lawntool'
     gardentool = 'gardentool'
+    other = 'other'
 
     available_types = [
         (powertool, 'powertool'),
         (lawntool, 'lawntool'),
         (gardentool, 'gardentool'),
+        (other, 'other'),
     ]
 
     name = models.CharField(max_length = 255)
