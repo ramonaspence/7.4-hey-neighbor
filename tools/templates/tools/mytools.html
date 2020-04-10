@@ -3,12 +3,14 @@
 {% block content %}
 <div class="row">
   <div class="col-8 offset-2">
-    <div class="modal-header">
-      <h2>Hello World</h2>
+    <div class="card-header bg-white d-flex justify-content-between">
+      <h2>Tools Owned by You</h2>
+      <a href="{% url 'tools:new' %}">Add a Tool</a>
     </div>
+
     {% for tool in object_list %}
-    <div class="modal-body">
-      <h4>{{ tool.owner }}</h4>
+    <div class="card-header bg-white">
+      <h4>{{ tool.name }}</h4>
       <p>{{ tool.type }}</p>
       <p>{{ tool.description }}</p>
     </div>

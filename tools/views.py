@@ -33,6 +33,8 @@ class ToolListView(generic.ListView):
     template_name = 'tools/tools.html'
     model = Tool
 
+    def get_queryset(self):
+        return Tool.objects.all().order_by('owner')
 
 class CreateToolView(generic.CreateView):
     template_name = 'tools/add.html'
